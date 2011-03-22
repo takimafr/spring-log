@@ -7,7 +7,7 @@ spring-log provides additional [slf4j](http://www.slf4j.org) and [logback](http:
 * Logger auto injection
 * Custom configuration in webapp, standalone and test environments
 
-See wiki pages.
+See [wiki pages](https://github.com/excilys/spring-log/wiki).
 
 ## Where are the binaries?
 
