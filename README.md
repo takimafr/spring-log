@@ -5,7 +5,7 @@
 spring-log provides additional [slf4j](http://www.slf4j.org) and [logback](http://logback.qos.ch) support for Spring projects :
 
 * Logger auto injection
-* Custom configuration in webapp and standalone environments
+* Custom configuration in webapp, standalone and test environments
 
 See wiki pages.
 
