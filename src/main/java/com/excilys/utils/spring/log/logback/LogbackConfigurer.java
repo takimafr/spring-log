@@ -18,9 +18,7 @@ package com.excilys.utils.spring.log.logback;
 import java.io.FileNotFoundException;
 import java.net.URL;
 
-import org.springframework.beans.FatalBeanException;
-import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
-import org.springframework.util.ClassUtils;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.springframework.util.ResourceUtils;
 import org.springframework.util.SystemPropertyUtils;
 
@@ -55,10 +53,6 @@ import ch.qos.logback.core.joran.spi.JoranException;
  */
 public class LogbackConfigurer {
 
-	private static final String JUL_BRIDGE_HANDLER_CLASS_NAME = "org.slf4j.bridge.SLF4JBridgeHandler";
-
-	private static final String JUL_BRIDGE_HANDLER_INSTALL_METHOD = JUL_BRIDGE_HANDLER_CLASS_NAME + ".install";
-
 	/**
 	 * Instantiates a new logback configurer.
 	 */
@@ -92,25 +86,11 @@ public class LogbackConfigurer {
 		loggerContext.reset();
 		ContextInitializer contextInitializer = new ContextInitializer(loggerContext);
 		contextInitializer.configureByResource(url);
-		resetJUL();
-	}
 
-	/**
-	 * Reset JUL if jul-to-sfl4j is present
-	 */
-	private static void resetJUL() {
-
-		if (ClassUtils.isPresent(JUL_BRIDGE_HANDLER_CLASS_NAME, ClassUtils.getDefaultClassLoader())) {
-
-			try {
-				MethodInvokingFactoryBean factory = new MethodInvokingFactoryBean();
-				factory.setStaticMethod(JUL_BRIDGE_HANDLER_INSTALL_METHOD);
-				factory.setArguments(new Object[] {});
-				factory.afterPropertiesSet();
-			} catch (Exception e) {
-				throw new FatalBeanException("Problem installing SLF4JBridgeHandler : " + e.getMessage(), e);
-			}
-		}
+		// reset JUL
+		// don't forget to configure the LevelChangePropagator contextListener
+		// in the config file!!!
+		SLF4JBridgeHandler.install();
 	}
 
 	/**
