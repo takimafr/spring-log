@@ -23,9 +23,9 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.util.WebUtils;
 
-import com.excilys.utils.spring.log.logback.LogbackConfigurer;
-
 import ch.qos.logback.core.joran.spi.JoranException;
+
+import com.excilys.utils.spring.log.logback.LogbackConfigurer;
 
 /**
  * Convenience class that performs custom Logback initialization for web
@@ -72,7 +72,8 @@ public final class LogbackWebConfigurer {
 	public static void initLogging(ServletContext servletContext) {
 
 		// Only perform custom Logback initialization in case of a config file.
-		String location = servletContext.getInitParameter(CONFIG_LOCATION_PARAM);
+		String location = getConfigLocation(servletContext);
+
 		if (location != null) {
 			// Perform actual Logback initialization; else rely on Logback's
 			// default initialization.
@@ -98,6 +99,22 @@ public final class LogbackWebConfigurer {
 				throw new RuntimeException("Unexpected error while configuring logback", e);
 			}
 		}
+	}
+
+	/**
+	 * Search for a specified config location, first in the servlet context and
+	 * then as a System property
+	 * 
+	 * @param servletContext
+	 *            the servletContext
+	 * @return the config location
+	 */
+	private static String getConfigLocation(ServletContext servletContext) {
+		String location = servletContext.getInitParameter(CONFIG_LOCATION_PARAM);
+		if (location == null) {
+			location = System.getProperty(CONFIG_LOCATION_PARAM);
+		}
+		return location;
 	}
 
 	/**
