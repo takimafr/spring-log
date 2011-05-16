@@ -4,5 +4,5 @@
 
 	<import resource="classpath:context/applicationContext-spring-log.xml" />
 
-	<bean class="com.excilys.utils.spring.log.slf4j.BeanWithStaticLogger" />
+	<bean class="com.excilys.ebi.utils.spring.log.slf4j.BeanWithStaticLogger" />
 </beans>

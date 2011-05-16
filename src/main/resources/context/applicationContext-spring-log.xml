@@ -2,5 +2,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean class="com.excilys.utils.spring.log.slf4j.InjectLoggerAnnotationBeanPostProcessor" />
+	<bean class="com.excilys.ebi.utils.spring.log.slf4j.InjectLoggerAnnotationBeanPostProcessor" />
 </beans>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Excilys (www.excilys.com)
+ * Copyright 2010-2011 eBusiness Information, Groupe Excilys (www.excilys.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.excilys.utils.spring.log.logback;
+package com.excilys.ebi.utils.spring.log.logback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -27,9 +27,9 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.excilys.utils.spring.log.logback.test.Logback;
-import com.excilys.utils.spring.log.logback.test.LogbackConfigurerTestExecutionListener;
-import com.excilys.utils.spring.log.slf4j.InjectLogger;
+import com.excilys.ebi.utils.spring.log.logback.test.Logback;
+import com.excilys.ebi.utils.spring.log.logback.test.LogbackConfigurerTestExecutionListener;
+import com.excilys.ebi.utils.spring.log.slf4j.InjectLogger;
 
 /**
  * Test for {@link LogbackConfigurer}
@@ -71,6 +71,6 @@ public class LogbackConfigurerTestExecutionListenerTest {
 			System.setOut(stdout);
 		}
 
-		Assert.assertTrue("Output log is incorrect", log.contains("DEBUG c.e.u.s.l.l.LogbackConfigurerTestExecutionListenerTest.testConsoleLogger - something in DEBUG"));
+		Assert.assertTrue("Output log is incorrect", log.contains("DEBUG c.e.e.u.s.l.l.LogbackConfigurerTestExecutionListenerTest.testConsoleLogger - something in DEBUG"));
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Excilys (www.excilys.com)
+ * Copyright 2010-2011 eBusiness Information, Groupe Excilys (www.excilys.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,19 +13,20 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.excilys.utils.spring.log.slf4j;
+package com.excilys.ebi.utils.spring.log.logback.test;
 
-import org.slf4j.Logger;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-/**
- * @author <a href="mailto:slandelle@excilys.com">Stephane LANDELLE</a>
- */
-public class BeanWithLogger {
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+public @interface Logback {
 
-	@InjectLogger
-	private Logger logger;
-
-	public Logger getLogger() {
-		return logger;
-	}
+	String value() default "";
 }

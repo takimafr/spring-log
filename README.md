@@ -16,8 +16,11 @@ You can find the binaries in our maven repository :
 
 ``` xml
 	<dependency>
-		<groupId>com.excilys.utils</groupId>
+		<groupId>com.excilys.ebi.utils</groupId>
 		<artifactId>spring-log</artifactId>
 		<version>1.0.0</version>
 	</dependency>
 ```
+
+## Notice :
+Starting from 1.0.1, groupId and packages have been translated from com.excilys.utils to com.excilys.ebi.utils

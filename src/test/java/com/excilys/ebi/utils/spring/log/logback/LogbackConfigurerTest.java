@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Excilys (www.excilys.com)
+ * Copyright 2010-2011 eBusiness Information, Groupe Excilys (www.excilys.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.excilys.utils.spring.log.logback;
+package com.excilys.ebi.utils.spring.log.logback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -37,7 +37,7 @@ public class LogbackConfigurerTest {
 
 	@BeforeClass
 	public static void initLogback() throws Exception {
-		LogbackConfigurer.initLogging("classpath:com/excilys/utils/spring/log/logback/logback-test.xml");
+		LogbackConfigurer.initLogging("classpath:com/excilys/ebi/utils/spring/log/logback/logback-test.xml");
 	}
 
 	@AfterClass
@@ -70,6 +70,6 @@ public class LogbackConfigurerTest {
 			System.setOut(stdout);
 		}
 
-		Assert.assertTrue("Output log is incorrect", log.contains("DEBUG c.e.u.s.l.l.LogbackConfigurerTest.testConsoleLogger - something in DEBUG"));
+		Assert.assertTrue("Output log is incorrect", log.contains("DEBUG c.e.e.u.s.l.l.LogbackConfigurerTest.testConsoleLogger - something in DEBUG"));
 	}
 }
