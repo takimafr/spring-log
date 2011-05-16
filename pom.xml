@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.excilys.ebi.utils</groupId>
 	<artifactId>spring-log</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 
 	<scm>
 		<connection>scm:git:git://github.com/excilys/spring-log.git</connection>
