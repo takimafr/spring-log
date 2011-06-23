@@ -1,4 +1,4 @@
-# spring-log 1.0.0
+# spring-log 1.0.2
 
 ## What for?
 
