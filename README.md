@@ -18,7 +18,7 @@ You can find the binaries in our maven repository :
 	<dependency>
 		<groupId>com.excilys.ebi.utils</groupId>
 		<artifactId>spring-log</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.2</version>
 	</dependency>
 ```
 
