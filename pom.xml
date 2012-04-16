@@ -44,7 +44,7 @@
 		<junit.version>4.10</junit.version>
 
 		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
-		<maven-licence-plugin.version>1.9.0</maven-licence-plugin.version>
+		<maven-license-plugin.version>1.10.b1</maven-license-plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -169,7 +169,7 @@
 				<plugin>
 					<groupId>com.mycila.maven-license-plugin</groupId>
 					<artifactId>maven-license-plugin</artifactId>
-					<version>${maven-licence-plugin.version}</version>
+					<version>${maven-license-plugin.version}</version>
 					<configuration>
 						<header>src/etc/header.txt</header>
 						<excludes>
