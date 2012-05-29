@@ -24,7 +24,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.util.ReflectionUtils.FieldCallback;
 
 /**
  * <p>
@@ -72,14 +74,14 @@ public class InjectLoggerAnnotationBeanPostProcessor implements BeanPostProcesso
 	protected void processLogger(final Object bean) {
 		final Class<?> clazz = bean.getClass();
 
-		ReflectionUtils.doWithFields(clazz, new ReflectionUtils.FieldCallback() {
+		ReflectionUtils.doWithFields(clazz, new FieldCallback() {
 			public void doWith(Field field) {
 				Annotation annotation = field.getAnnotation(InjectLogger.class);
 
 				if (annotation != null) {
-					if (Modifier.isStatic(field.getModifiers())) {
-						throw new IllegalStateException("InjectLogger annotation is not supported on final fields");
-					}
+					int modifiers = field.getModifiers();
+					Assert.isTrue(!Modifier.isStatic(modifiers), "InjectLogger annotation is not supported on static fields");
+					Assert.isTrue(!Modifier.isFinal(modifiers), "InjectLogger annotation is not supported on final fields");
 
 					ReflectionUtils.makeAccessible(field);
 
