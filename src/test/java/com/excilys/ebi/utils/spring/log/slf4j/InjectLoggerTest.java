@@ -16,7 +16,6 @@
 package com.excilys.ebi.utils.spring.log.slf4j;
 
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -42,17 +41,14 @@ public class InjectLoggerTest {
 	 * Check that an IllegalStateException is thrown if the logger member is
 	 * static
 	 */
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testStaticLoggerInjectionFailure() throws Throwable {
 
 		try {
 			new ClassPathXmlApplicationContext("com/excilys/ebi/utils/spring/log/slf4j/bean-with-static-logger-context.xml");
 
 		} catch (RuntimeException e) {
-			assertTrue("Expecting an IllegalStateException", e.getCause() instanceof IllegalStateException);
-			return;
+			throw e.getCause();
 		}
-
-		assertTrue("Expecting an IllegalStateException", false);
 	}
 }
