@@ -1,4 +1,4 @@
-# spring-log 1.0.2
+# spring-log 1.0.4
 
 ## What for?
 
@@ -11,16 +11,15 @@ See [wiki pages](https://github.com/excilys/spring-log/wiki).
 
 ## Where are the binaries?
 
-You can find the binaries in our maven repository :
-[http://repository.excilys.com/content/repositories/releases](http://repository.excilys.com/content/repositories/releases)
+Since 1.0.4, you can find the binaries in maven central :
 
 ``` xml
 	<dependency>
 		<groupId>com.excilys.ebi.utils</groupId>
 		<artifactId>spring-log</artifactId>
-		<version>1.0.2</version>
+		<version>1.0.4</version>
 	</dependency>
 ```
 
 ## Notice :
-Starting from 1.0.1, groupId and packages have been translated from com.excilys.utils to com.excilys.ebi.utils
+Old binaries will be removed from old private repository.
