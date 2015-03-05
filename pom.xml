@@ -9,7 +9,7 @@
 
 	<groupId>com.excilys.ebi.utils</groupId>
 	<artifactId>spring-log</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 
 	<name>Spring Log</name>
 	<description>Spring support for SLF4J and Logback</description>
