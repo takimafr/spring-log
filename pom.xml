@@ -1,21 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+
 	<groupId>com.excilys.ebi.utils</groupId>
 	<artifactId>spring-log</artifactId>
 	<version>1.0.4-SNAPSHOT</version>
 
+	<name>Spring Log</name>
+	<description>Spring support for SLF4J and Logback</description>
+	<url>https://github.com/excilys/spring-log</url>
+
 	<scm>
-		<connection>scm:git:git://github.com/excilys/spring-log.git</connection>
-		<developerConnection>scm:git:git@github.com:excilys/spring-log.git</developerConnection>
-		<url>https://github.com/excilys/spring-log.git</url>
+		<connection>scm:git:https://github.com/excilys/spring-log.git</connection>
+		<developerConnection>scm:git:https://github.com/excilys/spring-log.git</developerConnection>
+		<url>https://github.com/excilys/spring-log</url>
 	</scm>
 
-	<distributionManagement>
-		<repository>
-			<id>excilys-release</id>
-			<url>http://repository.excilys.com/content/repositories/releases</url>
-		</repository>
-	</distributionManagement>
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 
 	<developers>
 		<developer>
@@ -34,7 +45,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.5</java.version>
+		<maven.compiler.source>1.5</maven.compiler.source>
+		<maven.compiler.target>1.5</maven.compiler.target>
 
 		<servlet-api.version>2.5</servlet-api.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
@@ -43,7 +55,6 @@
 		<logback.version>1.0.3</logback.version>
 		<junit.version>4.10</junit.version>
 
-		<maven-compiler-plugin.version>2.4</maven-compiler-plugin.version>
 		<maven-license-plugin.version>1.10.b1</maven-license-plugin.version>
 	</properties>
 
@@ -158,14 +169,6 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler-plugin.version}</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
-				</plugin>
 				<plugin>
 					<groupId>com.mycila.maven-license-plugin</groupId>
 					<artifactId>maven-license-plugin</artifactId>
